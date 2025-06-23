@@ -1,6 +1,7 @@
 terraform {
   backend "remote" {
-    organization = "your-org"
+    organization = "asnaga"  # ✅ Correct value
+
     workspaces {
       name = "dev"
     }
