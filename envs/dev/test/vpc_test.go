@@ -8,7 +8,6 @@ import (
 func TestVpc(t *testing.T) {
   opts := &terraform.Options{
     TerraformDir: "../",
-    Vars: map[string]interface{}{"environment": "ci"},
     NoColor: true,
   }
 
