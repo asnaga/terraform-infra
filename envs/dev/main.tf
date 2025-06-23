@@ -34,6 +34,6 @@ module "redis" {
 }
 
 module "s3" {
-  source      = "git::https://github.com/asnaga/terraform-modules.git//s3/modules?ref=main"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//modules/s3?ref=main"
   environment = var.environment
 }
