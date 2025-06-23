@@ -22,5 +22,8 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
+    - name: Init Go module
+      run: go mod init terraform-infra || true
+
     - name: Run Terratest
       run: go test -v ./envs/dev/test
