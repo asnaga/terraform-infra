@@ -1,7 +1,7 @@
 provider "aws" { region = var.region }
 
 module "vpc" {
-  source      = "../../modules/vpc"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//vpc?ref=main"
   vpc_cidr    = var.vpc_cidr
   environment = var.environment
 }
