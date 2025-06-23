@@ -9,6 +9,8 @@ jobs:
   test:
     name: Run Terratest
     runs-on: ubuntu-latest
+    env:
+      TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_app_terraform_io }}
 
     steps:
     - name: Checkout repository
@@ -21,6 +23,8 @@ jobs:
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.6.6
 
     - name: Init Go module
       run: |
@@ -30,4 +34,3 @@ jobs:
 
     - name: Run Terratest
       run: go test -v ./envs/dev/test
-      
