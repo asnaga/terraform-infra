@@ -7,33 +7,33 @@ module "vpc" {
 }
 
 module "elb" {
-  source      = "../../modules/elb"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//elb?ref=main"
   vpc_id      = module.vpc.vpc_id
   subnets     = module.vpc.public_subnets
   environment = var.environment
 }
 
 module "ecs" {
-  source      = "../../modules/ecs"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//ecs?ref=main"
   subnets     = module.vpc.public_subnets
   environment = var.environment
 }
 
 module "rds" {
-  source      = "../../modules/rds"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//rds?ref=main"
   vpc_id      = module.vpc.vpc_id
   subnets     = module.vpc.public_subnets
   environment = var.environment
 }
 
 module "redis" {
-  source      = "../../modules/redis"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//redis?ref=main"
   vpc_id      = module.vpc.vpc_id
   subnets     = module.vpc.public_subnets
   environment = var.environment
 }
 
 module "s3" {
-  source      = "../../modules/s3"
+  source      = "git::https://github.com/asnaga/terraform-modules.git//S3?ref=main"
   environment = var.environment
 }
