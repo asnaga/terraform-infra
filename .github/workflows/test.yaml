@@ -23,7 +23,10 @@ jobs:
       uses: hashicorp/setup-terraform@v3
 
     - name: Init Go module
-      run: go mod init terraform-infra || true
+      run: |
+        go mod init terraform-infra || true
+        go get github.com/gruntwork-io/terratest/modules/terraform
+        go mod tidy
 
     - name: Run Terratest
       run: go test -v ./envs/dev/test
